@@ -1,0 +1,43 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "MicroInventarioApplication",
+            "request": "launch",
+            "mainClass": "com.nunez.jose.micro_inventario.MicroInventarioApplication",
+            "projectName": "micro_inventario",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=1850 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=micro_inventario"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MicroClienteApplication<micro_cliente>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.jose.nunez.micro_cliente.MicroClienteApplication",
+            "projectName": "micro_cliente",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MicroProductosApplication<micro_productos>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.nunez.jose.micro_productos.MicroProductosApplication",
+            "projectName": "micro_productos",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MicroVentasApplication<micro_ventas>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.nunez.jose.micro_ventas.MicroVentasApplication",
+            "projectName": "micro_ventas",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
