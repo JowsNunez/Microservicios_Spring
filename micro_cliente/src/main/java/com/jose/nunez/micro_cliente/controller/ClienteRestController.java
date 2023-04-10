@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -42,6 +43,16 @@ public class ClienteRestController {
     @GetMapping("/{id}")
     public Cliente getById(@PathVariable Integer id) {
         return _ClienteService.getById(id);
+    }
+    @GetMapping("/filter")
+    public Cliente getByIdRfc(@RequestParam(required = false) Integer id,
+    @RequestParam(required = false) String rfc) {
+
+        if(id!=null)  return _ClienteService.getById(id);
+        
+        if(rfc!=null)  return _ClienteService.getByRfc(rfc);
+
+        return null;
     }
 
     @DeleteMapping("/{id}")

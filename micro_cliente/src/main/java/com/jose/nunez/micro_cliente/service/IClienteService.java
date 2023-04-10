@@ -16,6 +16,7 @@ public interface IClienteService<T> {
     
     Iterable<T> getAll();
     T getById(Integer id);
+    T getByRfc(String rfc);
     T create(T entity);
     void delete(Integer id);
     T update(Cliente cliente, Integer id);

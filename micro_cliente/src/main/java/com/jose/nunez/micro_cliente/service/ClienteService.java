@@ -53,4 +53,9 @@ public class ClienteService implements IClienteService<Cliente> {
 
         return _clienteRepository.save(aux);
     }
+
+    @Override
+    public Cliente getByRfc(String rfc) {
+      return _clienteRepository.findByRfc(rfc).get();
+    }
 }
