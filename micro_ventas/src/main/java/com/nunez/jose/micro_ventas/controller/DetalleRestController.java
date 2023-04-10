@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -33,8 +36,9 @@ public class DetalleRestController {
     }
 
     @PostMapping
-    public Detalle create(@RequestBody Detalle newDetalle) {
-        return _DetalleService.create(newDetalle);
+    public List<Detalle> create(@RequestBody List<Detalle> newDetalle) {
+        
+        return _DetalleService.insertMany(newDetalle);
     }
 
     @GetMapping("/{id}")
@@ -46,4 +50,6 @@ public class DetalleRestController {
     public void delete(@PathVariable Integer id) {
         _DetalleService.delete(id);
     }
+
+    
 }

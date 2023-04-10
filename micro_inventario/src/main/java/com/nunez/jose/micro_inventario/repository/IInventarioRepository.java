@@ -17,7 +17,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IInventarioRepository extends JpaRepository<Inventario, Integer> {
 
-    @Query("SELECT i FROM Inventario i WHERE i.idProducto.id = :idProducto")
+    @Query("SELECT i FROM Inventario i WHERE i.producto.id = :idProducto")
 
     Inventario findByIdProducto(@Param(value="idProducto") Integer id);
     

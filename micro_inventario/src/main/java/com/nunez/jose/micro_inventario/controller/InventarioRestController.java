@@ -35,7 +35,6 @@ public class InventarioRestController {
 
     @PostMapping
     public Inventario create(@RequestBody Inventario newInventario) {
-        System.out.println(newInventario.getCantidad());
         
         return _InventarioService.create(newInventario);
     }

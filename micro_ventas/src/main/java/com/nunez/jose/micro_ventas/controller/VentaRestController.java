@@ -2,8 +2,8 @@
 
 package com.nunez.jose.micro_ventas.controller;
 
-
 import com.nunez.jose.micro_ventas.service.IVentaService;
+import com.nunez.jose.micro_ventas.dto.VentaDTO;
 import com.nunez.jose.micro_ventas.entity.Venta;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -46,4 +47,15 @@ public class VentaRestController {
     public void delete(@PathVariable Integer id) {
         _VentaService.delete(id);
     }
+
+    @GetMapping("/filter")
+    public VentaDTO getByCliente(@RequestParam(required = false) Integer idCliente,
+            @RequestParam(required = false) String folio, 
+            @RequestParam(required = false) Integer idVenta,
+            @RequestParam(required = false) String fecha) {
+                
+        return _VentaService.findByClienteFolioIdVenta(idCliente, folio, idVenta,fecha);
+
+    }
+
 }

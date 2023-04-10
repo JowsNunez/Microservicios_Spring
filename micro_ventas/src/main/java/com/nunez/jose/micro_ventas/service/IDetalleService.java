@@ -2,6 +2,8 @@
 
 package com.nunez.jose.micro_ventas.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,5 +18,6 @@ public interface IDetalleService<T> {
     T getById(Integer id);
     T create(T entity);
     void delete(Integer id);
+    List<T> insertMany(List<T> detalleList); 
     
 }

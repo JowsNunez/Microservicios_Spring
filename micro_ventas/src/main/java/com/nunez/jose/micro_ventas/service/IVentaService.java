@@ -2,7 +2,10 @@
 
 package com.nunez.jose.micro_ventas.service;
 
+
 import org.springframework.stereotype.Service;
+
+import com.nunez.jose.micro_ventas.dto.VentaDTO;
 
 /**
  *
@@ -16,5 +19,7 @@ public interface IVentaService<T> {
     T getById(Integer id);
     T create(T entity);
     void delete(Integer id);
+    VentaDTO findByClienteFolioIdVenta(Integer idCliente,String folio,Integer idVenta, String fecha);
+    
     
 }

@@ -1,5 +1,6 @@
 package com.nunez.jose.micro_ventas.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -17,7 +18,7 @@ import jakarta.persistence.Table;
  */
 @Entity
 @Table(name="Venta")
-public class Venta {
+public class Venta  implements Serializable{
 
     @Id
     @Column(name="Id")
@@ -64,5 +65,8 @@ public class Venta {
         this.idCliente = idCliente;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Venta{idVenta="+idVenta+"idCliente="+idCliente.getNombre()+"}";
+    }
 }

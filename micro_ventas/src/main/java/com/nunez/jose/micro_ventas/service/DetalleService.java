@@ -5,6 +5,9 @@ package com.nunez.jose.micro_ventas.service;
 
 import com.nunez.jose.micro_ventas.entity.Detalle;
 import com.nunez.jose.micro_ventas.repository.IDetalleRepository;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +22,7 @@ public class DetalleService implements IDetalleService<Detalle> {
 
     @Autowired
     private IDetalleRepository _detalleRepository;
+   
 
 
     @Override
@@ -41,5 +45,19 @@ public class DetalleService implements IDetalleService<Detalle> {
     public void delete(Integer id){
          _detalleRepository.deleteById(id);
     }
+
+    @Override
+    public List<Detalle> insertMany(List<Detalle> detalleList) {
+        List<Detalle> aux= new ArrayList<>();
+        
+
+        for (Detalle detalle : detalleList) {
+          
+           aux.add(this.create(detalle));
+        }
+        return aux;
+    }
+
+    
 
 } 
